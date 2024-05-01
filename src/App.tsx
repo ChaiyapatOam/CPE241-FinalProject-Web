@@ -6,6 +6,7 @@ import StaffLayout from "./pages/staff";
 import StaffHome from "./pages/staff/home";
 import StaffRoomType from "./pages/staff/payment";
 import StaffPromotion from "./pages/staff/promotion";
+import StaffProduct from "./pages/staff/product";
 
 const App = () => {
   return (
@@ -23,7 +24,7 @@ const App = () => {
               <Route path="roomtype" element={<StaffRoomType />} />
               <Route path="promotion" element={<StaffPromotion />} />
               <Route path="service" element={<StaffRoomType />} />
-              <Route path="product" element={<StaffRoomType />} />
+              <Route path="product" element={<StaffProduct />} />
             </Route>
           </Routes>
         </main>
