@@ -1,0 +1,11 @@
+.ant-modal-title {
+  @apply bg-primary-blue !py-2 !text-center !text-secondary !rounded-t-lg;
+}
+
+.ant-modal-content {
+  @apply !text-black !p-0;
+}
+
+.ant-modal-close {
+  @apply !top-1 !right-1;
+}

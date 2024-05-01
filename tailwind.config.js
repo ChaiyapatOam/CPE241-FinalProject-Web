@@ -4,10 +4,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        "blue-primary": "#0B85FF",
+        "primary-blue": "#0B85FF",
         accent: "#87BCFF",
         "dark-gray": "#404040",
         secondary: "#FFE738",
+      },
+      fontFamily: {
+        IBM: ["IBM Plex Sans Thai", "sans-serif"],
       },
     },
   },
