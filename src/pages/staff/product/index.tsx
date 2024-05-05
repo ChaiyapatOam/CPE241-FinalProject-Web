@@ -10,6 +10,7 @@ const { Option } = Select;
 
 const StaffProduct = () => {
   const [openModal, setOpenModal] = useState(false);
+  const [openModal2, setOpenModal2] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
   const [selectProduct, setSelectProduct] = useState({} as any);
   const formRef = useRef(null);
@@ -17,6 +18,11 @@ const StaffProduct = () => {
 
   const handleCreate = (values: any) => {
     setOpenModal(false);
+    console.log(values);
+  };
+
+  const handleCreate2 = (values: any) => {
+    setOpenModal2(false);
     console.log(values);
   };
 
@@ -56,6 +62,49 @@ const StaffProduct = () => {
     },
   ];
 
+  const category = [
+    {
+      id: "1",
+      name: "Drink",
+    },
+    {
+      id: "2",
+      name: "18+ Item",
+    },
+    {
+      id: "3",
+      name: "Snack",
+    },
+  ];
+
+  const categoryColumns: ColumnsType = [
+    {
+      title: "ID",
+      dataIndex: "id",
+      key: "id",
+    },
+    {
+      title: "Name",
+      dataIndex: "name",
+      align: "center",
+    },
+    {
+      key: "x",
+      render: (e) => (
+        <div className="flex justify-center gap-x-4">
+          <Button
+            icon={<DeleteOutlined />}
+            style={{ color: "red" }}
+            type="text"
+            onClick={() => {}}
+            className="px-6 rounded-xl"
+          />
+        </div>
+      ),
+      align: "center",
+    },
+  ];
+
   const productColumns: ColumnsType = [
     {
       title: "ID",
@@ -63,7 +112,7 @@ const StaffProduct = () => {
       key: "id",
     },
     {
-      title: "name",
+      title: "Name",
       dataIndex: "name",
       align: "center",
     },
@@ -73,12 +122,12 @@ const StaffProduct = () => {
       align: "center",
     },
     {
-      title: "price",
+      title: "Price",
       dataIndex: "price",
       align: "center",
     },
     {
-      title: "quantity",
+      title: "Quantity",
       dataIndex: "quantity",
       align: "center",
     },
@@ -111,10 +160,10 @@ const StaffProduct = () => {
 
   return (
     <>
-      <div className="grid grid-cols-3 justify-center items-center gap-4 p-6">
+      <div className="grid grid-cols-3 justify-center items-center place-items-center gap-4 p-6">
         <div className="col-span-1">
           <Search
-            placeholder="employee ID"
+            placeholder="Category name.."
             allowClear
             onSearch={(onSearch) => {
               console.log(onSearch);
@@ -122,7 +171,40 @@ const StaffProduct = () => {
             style={{ width: 200 }}
           />
         </div>
+        <div>
+          <Button
+            onClick={() => {
+              form.resetFields();
+              setIsEdit(false);
+              setOpenModal2(true);
+            }}
+            size="large"
+            className="px-6 border border-primary-blue rounded-xl"
+          >
+            Create category
+          </Button>
+        </div>
+      </div>
+      <div className="px-60" >
+        <MyTable
+          dataSource={category}
+          rowKey={(record) => record.id}
+          columns={categoryColumns}
+        />
+      </div>
+      <div className="grid grid-cols-3 justify-center items-center place-items-center gap-4 p-6 ">
         <div className="col-span-1">
+          <Search
+            placeholder="Product name.."
+            allowClear
+            onSearch={(onSearch) => {
+              console.log(onSearch);
+            }}
+            style={{ width: 200 }}
+          />
+        </div>
+        <div className="col-span-1 w-8/12">
+          <label className="ml-10 mr-3">Category</label>
           <Select
             className="w-1/2"
             size="large"
@@ -131,8 +213,8 @@ const StaffProduct = () => {
               console.log(e.label);
             }}
           >
-            <Option value="1">Room Type</Option>
-            <Option value="2">Max People</Option>
+            <Option value="1">Drink</Option>
+            <Option value="2">Snack</Option>
           </Select>
         </div>
         <div>
@@ -145,10 +227,11 @@ const StaffProduct = () => {
             size="large"
             className="px-6 border border-primary-blue rounded-xl"
           >
-            Create
+            Create product
           </Button>
         </div>
       </div>
+      
       <div className="px-40">
         <MyTable
           dataSource={Products}
@@ -156,8 +239,9 @@ const StaffProduct = () => {
           columns={productColumns}
         />
       </div>
+      
       <ModalForm
-        title={isEdit ? "Edit Product" : "Add Product"}
+        title={isEdit ? "Edit Product" : "Create Product"}
         desc=""
         isopen={openModal}
         setIsOpen={setOpenModal}
@@ -185,7 +269,7 @@ const StaffProduct = () => {
             <Input type="number" size="large" className="w-full" />
           </Form.Item>
           <Form.Item
-            label="quantity"
+            label="Quantity"
             name="quantity"
             rules={[{ required: true, message: "Please input quantity!" }]}
           >
@@ -193,12 +277,24 @@ const StaffProduct = () => {
           </Form.Item>
 
           <Form.Item
-            label="category"
+            label="Category"
             name="category"
             rules={[{ required: true, message: "Please input category!" }]}
           >
-            <Input type="text" size="large" className="w-full" />
+             <Select
+            className="w-1/2"
+            size="large"
+            labelInValue
+            onChange={(e) => {
+              console.log(e.label);
+            }}
+            >
+            <Option value="1">Drink</Option>
+            <Option value="2">18+ Item</Option>
+            <Option value="3">Snack</Option>
+            </Select>
           </Form.Item>
+         
 
           <Button
             onClick={() => {}}
@@ -206,9 +302,31 @@ const StaffProduct = () => {
             className="px-6 border border-primary-blue rounded-xl"
             size="large"
           >
-            {isEdit ? "Edit " : "Add"}
+            {isEdit ? "Edit " : "Create"}
           </Button>
         </Form>
+      </ModalForm>
+      <ModalForm
+        title={"Create Category"}
+        desc=""
+        isopen={openModal2}
+        setIsOpen={setOpenModal2}
+      >
+         <Form.Item
+            label="Name"
+            name="name"
+            rules={[{ required: true, message: "Please input Category name!" }]}
+          >
+            <Input type="text" size="large" className="w-full" />
+          </Form.Item>
+          <Button
+            onClick={() => {}}
+            htmlType="submit"
+            className="px-6 border border-primary-blue rounded-xl"
+            size="large"
+          >
+            Create Category
+          </Button>
       </ModalForm>
     </>
   );

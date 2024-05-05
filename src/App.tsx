@@ -14,7 +14,7 @@ const App = () => {
   return (
     <Router>
       <ConfigProvider theme={theme}>
-        <main className="font-IBM min-h-dvh">
+        <main className="font-IBM bg-slate-50 min-h-dvh">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="staff" element={<StaffLayout />}>
@@ -29,7 +29,7 @@ const App = () => {
               <Route path="avaliable-room" element={<StaffAvaliableRoom />} />
             </Route>
           </Routes>
-        </main>
+        </main >
       </ConfigProvider>
     </Router>
   );

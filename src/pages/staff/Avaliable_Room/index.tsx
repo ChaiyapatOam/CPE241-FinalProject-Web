@@ -82,7 +82,7 @@ const StaffAvaliableRoom = () => {
 
   return (
     <>
-      <div className="grid grid-cols-3 justify-center items-center place-items-center  gap-4 p-6 ">
+      <div className="grid grid-cols-3 justify-center items-center place-items-center gap-4 p-6 ">
         <div className="col-span-1 w-8/12">
         <label className="mr-3 w-3/12">Room Type</label>
           <Select
