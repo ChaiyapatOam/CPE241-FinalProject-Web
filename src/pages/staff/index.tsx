@@ -35,6 +35,10 @@ const StaffLayout = () => {
       path: "/staff/product",
       title: "Product",
     },
+    {
+      path: "/staff/avaliable-room",
+      title: "avaliable-room",
+    },
   ];
 
   return (
