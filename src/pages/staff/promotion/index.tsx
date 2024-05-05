@@ -74,6 +74,11 @@ const StaffPromotion = () => {
       align: "center",
     },
     {
+      title: "Room Type",
+      dataIndex: "roomType",
+      align: "center",
+    },
+    {
       key: "x",
       render: (e) => (
         <div className="flex justify-center gap-x-4">
@@ -83,7 +88,7 @@ const StaffPromotion = () => {
               setIsEdit(true);
               setOpenModal(true);
             }}
-            className="px-6 border border-primary-blue rounded-xl"
+            className="px-6 border border-primary-blue rounded-l text-primary-blue"
           >
             Edit
           </Button>
@@ -102,10 +107,11 @@ const StaffPromotion = () => {
 
   return (
     <>
-      <div className="grid grid-cols-3 justify-center items-center gap-4 p-6">
+      <div className="grid grid-cols-3 justify-center items-center place-items-center gap-4 p-6">
         <div className="col-span-1">
+        <label className="mr-3 w-3/12">Search</label>
           <Search
-            placeholder="employee ID"
+            placeholder="Coupon Code"
             allowClear
             onSearch={(onSearch) => {
               console.log(onSearch);
@@ -113,7 +119,8 @@ const StaffPromotion = () => {
             style={{ width: 200 }}
           />
         </div>
-        <div className="col-span-1">
+        <div className="col-span-1 w-8/12">
+        <label className="mr-3 w-3/12">Filter</label>
           <Select
             className="w-1/2"
             size="large"
@@ -134,7 +141,7 @@ const StaffPromotion = () => {
               setOpenModal(true);
             }}
             size="large"
-            className="px-6 border border-primary-blue rounded-xl"
+            className="px-6 border bg-primary-blue rounded-xl text-white"
           >
             Create
           </Button>

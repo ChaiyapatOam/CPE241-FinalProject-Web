@@ -4,9 +4,10 @@ import { ConfigProvider } from "antd";
 import { theme } from "./utils/theme";
 import StaffLayout from "./pages/staff";
 import StaffHome from "./pages/staff/home";
-import StaffRoomType from "./pages/staff/payment";
+import StaffRoomType from "./pages/staff/RoomType";
 import StaffPromotion from "./pages/staff/promotion";
 import StaffProduct from "./pages/staff/product";
+import StaffAvaliableRoom from "./pages/staff/Avaliable_Room";
 
 const App = () => {
   return (
@@ -15,7 +16,6 @@ const App = () => {
         <main className="font-IBM min-h-dvh">
           <Routes>
             <Route path="/" element={<Home />} />
-
             <Route path="staff" element={<StaffLayout />}>
               <Route index element={<StaffHome />} />
               <Route path="avaliable" element={<StaffRoomType />} />
@@ -25,6 +25,7 @@ const App = () => {
               <Route path="promotion" element={<StaffPromotion />} />
               <Route path="service" element={<StaffRoomType />} />
               <Route path="product" element={<StaffProduct />} />
+              <Route path="avaliable-room" element={<StaffAvaliableRoom />} />
             </Route>
           </Routes>
         </main>
