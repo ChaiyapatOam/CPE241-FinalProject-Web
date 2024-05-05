@@ -8,6 +8,7 @@ import StaffRoomType from "./pages/staff/RoomType";
 import StaffPromotion from "./pages/staff/promotion";
 import StaffProduct from "./pages/staff/product";
 import StaffAvaliableRoom from "./pages/staff/Avaliable_Room";
+import StaffService from "./pages/staff/Ser";
 
 const App = () => {
   return (
@@ -23,7 +24,7 @@ const App = () => {
               <Route path="booking" element={<StaffRoomType />} />
               <Route path="roomtype" element={<StaffRoomType />} />
               <Route path="promotion" element={<StaffPromotion />} />
-              <Route path="service" element={<StaffRoomType />} />
+              <Route path="service" element={<StaffService />} />
               <Route path="product" element={<StaffProduct />} />
               <Route path="avaliable-room" element={<StaffAvaliableRoom />} />
             </Route>
