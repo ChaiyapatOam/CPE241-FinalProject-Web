@@ -14,7 +14,7 @@ import MaidChecking from "./pages/maid/checkingService";
 import MaidHistoryService from "./pages/maid/historyService";
 import MaidProductCharge from "./pages/maid/productCharge";
 import ManagerStaffManage from "./pages/manager/staffManage";
-import ReceptReserve from "./pages/reception/reserv";
+import ReceptReserve from "./pages/reception/reserv/index.tsx";
 
 const App = () => {
   return (
