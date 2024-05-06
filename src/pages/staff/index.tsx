@@ -43,6 +43,30 @@ const StaffLayout = () => {
       path: "/staff/assign-maid",
       title: "Assign Maid",
     },
+    {
+      path: "/maid",
+      title: "Home",
+    },
+    {
+      path: "/maid/checkingService",
+      title: "Checking Service",
+    },
+    {
+      path: "/maid/historyService",
+      title: "History Service",
+    },
+    {
+      path: "/maid/productCharge",
+      title: "Product Charge",
+    },
+    {
+      path: "/manager/staffManage",
+      title: "Staff Manage",
+    },
+    {
+      path: "/reception/reservation",
+      title: "Reservation",
+    },
   ];
 
   return (
