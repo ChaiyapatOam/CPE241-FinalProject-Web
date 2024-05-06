@@ -39,12 +39,16 @@ const StaffLayout = () => {
       path: "/staff/avaliable-room",
       title: "avaliable-room",
     },
+    {
+      path: "/staff/assign-maid",
+      title: "Assign Maid",
+    },
   ];
 
   return (
-    <>
-      <h1 className="text-2xl text-black font-bold mt-6">
-        <span className="px-4 py-1 bg-secondary rounded-full">
+    < >
+      <h1 className="text-2xl text-dark-grey font-bold p-5">
+        <span className="px-4 py-1 bg-secondary rounded-full w-full">
           {pageTitle.filter((page) => page.path === location.pathname)[0].title}
         </span>
       </h1>
