@@ -14,7 +14,9 @@ import MaidChecking from "./pages/maid/checkingService";
 import MaidHistoryService from "./pages/maid/historyService";
 import MaidProductCharge from "./pages/maid/productCharge";
 import ManagerStaffManage from "./pages/manager/staffManage";
-import ReceptReserve from "./pages/reception/reserv/index.tsx";
+import ReceptReserve from "./pages/reception/reserv";
+import ReceptPayment from "./pages/reception/allPayment";
+import Payment from "./pages/reception/payment";
 
 const App = () => {
   return (
@@ -48,6 +50,8 @@ const App = () => {
             <Route path="reception" element={<StaffLayout />}>
               <Route index element={<StaffHome />} />
               <Route path="reservation" element={<ReceptReserve />} />
+              <Route path="payment-booking" element={<ReceptPayment />} />
+              <Route path="payment" element={<Payment />} />
             </Route>
           </Routes>
         </main >

@@ -67,6 +67,14 @@ const StaffLayout = () => {
       path: "/reception/reservation",
       title: "Reservation",
     },
+    {
+      path: "/reception/payment-booking",
+      title: "Payment",
+    },
+    {
+      path: "/reception/payment",
+      title: "Payment",
+    },
   ];
 
   return (
