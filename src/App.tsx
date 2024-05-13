@@ -17,6 +17,7 @@ import ManagerStaffManage from "./pages/manager/staffManage";
 import ReceptReserve from "./pages/reception/reserv";
 import ReceptPayment from "./pages/reception/allPayment";
 import Payment from "./pages/reception/payment";
+import Dashboard from "./pages/manager/Dashboard";
 
 const App = () => {
   return (
@@ -52,6 +53,11 @@ const App = () => {
               <Route path="reservation" element={<ReceptReserve />} />
               <Route path="payment-booking" element={<ReceptPayment />} />
               <Route path="payment" element={<Payment />} />
+            </Route>
+            <Route path="manager" element={<StaffLayout />}>
+              <Route index element={<StaffHome />} />
+              <Route path="dashboard" element={<Dashboard />} />
+              <Route path="staff-manage" element={<ManagerStaffManage />} />
             </Route>
           </Routes>
         </main >
