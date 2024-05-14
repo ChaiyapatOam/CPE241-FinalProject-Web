@@ -48,6 +48,10 @@ const StaffLayout = () => {
       title: "All Service",
     },
     {
+      path: "/staff/history-booking",
+      title: "History Booking",
+    },
+    {
       path: "/maid",
       title: "Home",
     },

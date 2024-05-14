@@ -19,6 +19,7 @@ import ReceptPayment from "./pages/reception/allPayment";
 import Payment from "./pages/reception/payment";
 import Dashboard from "./pages/manager/Dashboard";
 import StaffAllService from "./pages/staff/allService";
+import StaffHistoryBooking from "./pages/staff/historyBooking";
 
 const App = () => {
   return (
@@ -39,6 +40,7 @@ const App = () => {
               <Route path="product" element={<StaffProduct />} />
               <Route path="avaliable-room" element={<StaffAvaliableRoom />} />
               <Route path="assign-maid" element={<StaffAssignMaid />} />
+              <Route path="history-booking" element={<StaffHistoryBooking />} />
             </Route>
             <Route path="maid" element={<StaffLayout />}>
               <Route index element={<StaffHome />} />
