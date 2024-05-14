@@ -44,6 +44,10 @@ const StaffLayout = () => {
       title: "Assign Maid",
     },
     {
+      path: "/staff/all-service",
+      title: "All Service",
+    },
+    {
       path: "/maid",
       title: "Home",
     },
@@ -60,7 +64,7 @@ const StaffLayout = () => {
       title: "Product Charge",
     },
     {
-      path: "/manager/staffManage",
+      path: "/manager/staff-manage",
       title: "Staff Manage",
     },
     {
@@ -74,6 +78,10 @@ const StaffLayout = () => {
     {
       path: "/reception/payment",
       title: "Payment",
+    },
+    {
+      path: "/manager/dashboard",
+      title: "Dashboard",
     },
   ];
 

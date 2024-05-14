@@ -18,6 +18,7 @@ import ReceptReserve from "./pages/reception/reserv";
 import ReceptPayment from "./pages/reception/allPayment";
 import Payment from "./pages/reception/payment";
 import Dashboard from "./pages/manager/Dashboard";
+import StaffAllService from "./pages/staff/allService";
 
 const App = () => {
   return (
@@ -33,6 +34,7 @@ const App = () => {
               <Route path="booking" element={<StaffRoomType />} />
               <Route path="roomtype" element={<StaffRoomType />} />
               <Route path="promotion" element={<StaffPromotion />} />
+              <Route path="all-service" element={<StaffAllService />} />
               <Route path="service" element={<StaffService />} />
               <Route path="product" element={<StaffProduct />} />
               <Route path="avaliable-room" element={<StaffAvaliableRoom />} />
@@ -43,10 +45,6 @@ const App = () => {
               <Route path="checkingService" element={<MaidChecking />} />
               <Route path="historyService" element={<MaidHistoryService />} />
               <Route path="productCharge" element={<MaidProductCharge />} />
-            </Route>
-            <Route path="manager" element={<StaffLayout />}>
-              <Route index element={<StaffHome />} />
-              <Route path="staffManage" element={<ManagerStaffManage/>} />
             </Route>
             <Route path="reception" element={<StaffLayout />}>
               <Route index element={<StaffHome />} />
