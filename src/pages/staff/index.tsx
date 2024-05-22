@@ -1,104 +1,30 @@
-import { Outlet, useLocation } from "react-router-dom";
+import SideBar from '@/components/SideBar'
+import { pageTitleList } from '@/utils/pageTitleList'
+import { Layout } from 'antd'
+import { Outlet, useLocation } from 'react-router-dom'
 
 const StaffLayout = () => {
-  const location = useLocation();
-  const pageTitle = [
-    {
-      path: "/staff",
-      title: "Home",
-    },
-    {
-      path: "/staff/roomtype",
-      title: "Room Type",
-    },
-    {
-      path: "/staff/avaliable",
-      title: "Avaliable",
-    },
-    {
-      path: "/staff/service-booking",
-      title: "Service Booking",
-    },
-    {
-      path: "/staff/booking",
-      title: "Booking",
-    },
-    {
-      path: "/staff/promotion",
-      title: "Promotion",
-    },
-    {
-      path: "/staff/service",
-      title: "Service",
-    },
-    {
-      path: "/staff/product",
-      title: "Product",
-    },
-    {
-      path: "/staff/avaliable-room",
-      title: "avaliable-room",
-    },
-    {
-      path: "/staff/assign-maid",
-      title: "Assign Maid",
-    },
-    {
-      path: "/staff/all-service",
-      title: "All Service",
-    },
-    {
-      path: "/staff/history-booking",
-      title: "History Booking",
-    },
-    {
-      path: "/maid",
-      title: "Home",
-    },
-    {
-      path: "/maid/checkingService",
-      title: "Checking Service",
-    },
-    {
-      path: "/maid/historyService",
-      title: "History Service",
-    },
-    {
-      path: "/maid/productCharge",
-      title: "Product Charge",
-    },
-    {
-      path: "/manager/staff-manage",
-      title: "Staff Manage",
-    },
-    {
-      path: "/reception/reservation",
-      title: "Reservation",
-    },
-    {
-      path: "/reception/payment-booking",
-      title: "Payment",
-    },
-    {
-      path: "/reception/payment",
-      title: "Payment",
-    },
-    {
-      path: "/manager/dashboard",
-      title: "Dashboard",
-    },
-  ];
+  const location = useLocation()
 
   return (
-    < >
-      <h1 className="text-2xl text-dark-grey font-bold p-5">
-        <span className="px-4 py-1 bg-secondary rounded-full w-full">
-          {pageTitle.filter((page) => page.path === location.pathname)[0].title}
-        </span>
-      </h1>
-      <Outlet />
+    <>
+      <Layout style={{ minHeight: '100vh' }}>
+        <Layout>
+          <div className="sticky top-0 left-0 overflow-auto h-full">
+            <SideBar />
+          </div>
+          <Layout style={{ overflow: 'initial' }}>
+            <h1 className="text-2xl text-dark-grey font-bold p-5 pl-0 pt-16">
+              <span className="px-4 py-1 bg-secondary rounded-r-full w-full shadow-md">
+                {pageTitleList.filter((page) => page.path === location.pathname)[0].title}
+              </span>
+            </h1>
+            <Outlet />
+          </Layout>
+        </Layout>
+      </Layout>
     </>
-  );
-};
+  )
+}
 
-export default StaffLayout;
+export default StaffLayout
