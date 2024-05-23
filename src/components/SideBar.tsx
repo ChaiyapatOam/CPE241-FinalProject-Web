@@ -36,9 +36,10 @@ const SideBar = () => {
                 )
               })}
           </Menu>
+          <div className='p-9 bg-white'></div>
           <div className="w-full block absolute bottom-1 overflow-hidden">
             <div className="grid grid-cols-1 place-items-center">
-              <Button onClick={() => {}} className="flex items-center border-2 border-white rounded-xl px-3 py-1">
+              <Button onClick={() => {}} className="flex items-center border-2 border-white rounded-xl px-3 py-1 fixed bottom-10">
                 Log out
               </Button>
             </div>
