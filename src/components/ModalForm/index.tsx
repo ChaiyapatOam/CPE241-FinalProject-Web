@@ -1,14 +1,14 @@
-import { Modal } from "antd";
-import "./index.css";
+import { Modal } from 'antd'
+import './index.css'
 
 type Props = {
-  isopen: boolean;
-  setIsOpen: (value: React.SetStateAction<boolean>) => void;
-  title: string;
-  desc: string;
-  onSave?: (params: any) => any;
-  children?: React.ReactNode;
-};
+  isopen: boolean
+  setIsOpen: (value: React.SetStateAction<boolean>) => void
+  title: string
+  desc: string
+  onSave?: (params: any) => any
+  children?: React.ReactNode
+}
 
 const ModalForm = (props: Props) => {
   return (
@@ -47,7 +47,7 @@ const ModalForm = (props: Props) => {
         </button>
       </div> */}
     </Modal>
-  );
-};
+  )
+}
 
-export default ModalForm;
+export default ModalForm

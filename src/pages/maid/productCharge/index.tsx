@@ -1,41 +1,34 @@
-import { Button, Checkbox, Form, Input, Select, TimePicker } from "antd";
-// import { DeleteOutlined } from "@ant-design/icons";
-import { ColumnsType } from "antd/es/table";
-import { useEffect, useRef, useState } from "react";
-import MyTable from "@/components/Table";
-import ModalForm from "@/components/ModalForm";
-import StaffNavBar from "@/components/StaffNavBar";
+import { Button, Form, Input } from 'antd'
+import { useEffect, useRef, useState } from 'react'
+import ModalForm from '@/components/ModalForm'
 
 const MaidProductCharge = () => {
-  const [openModal, setOpenModal] = useState(false);
-  const [isEdit, setIsEdit] = useState(false);
-  const [selectProduct, setSelectedProduct] = useState({} as any);
-  const formRef = useRef(null);
-  const [form] = Form.useForm();
+  const [openModal, setOpenModal] = useState(false)
+  const [isEdit, setIsEdit] = useState(false)
+  const [selectProduct, setSelectedProduct] = useState({} as any)
+  const formRef = useRef(null)
+  const [form] = Form.useForm()
 
   const handleCreate = (values: any) => {
-    setOpenModal(false);
-    console.log(values);
-  };
+    setOpenModal(false)
+    console.log(values)
+  }
 
   const handleEdit = (values: any) => {
-    console.log(values);
-  };
+    console.log(values)
+  }
 
   //   const handleDelete = (values: any) => {
   //     console.log(values);
   //   };
 
   useEffect(() => {
-    form.setFieldsValue({ ...selectProduct });
-  }, [selectProduct]);
+    form.setFieldsValue({ ...selectProduct })
+  }, [selectProduct])
 
   return (
     <>
       <div className="flex flex-row">
-        <div className="basis-1/4">
-          <StaffNavBar />
-        </div>
         <div className="basis-3/4">
           <div className="bg-white rounded-lg drop-shadow-md ml-10 mr-10">
             <div className="bg-primary-blue p-4 text-secondary rounded-t-lg ">
@@ -57,8 +50,8 @@ const MaidProductCharge = () => {
                 <Button
                   onClick={() => {
                     // setSelectedProduct(e);
-                    setIsEdit(true);
-                    setOpenModal(true);
+                    setIsEdit(true)
+                    setOpenModal(true)
                   }}
                   className="px-6 border bg-primary-blue rounded-md text-white ml-3"
                 >
@@ -67,43 +60,30 @@ const MaidProductCharge = () => {
               </div>
             </div>
           </div>
-          <ModalForm
-            title={"Add Product Order"}
-            desc=""
-            isopen={openModal}
-            setIsOpen={setOpenModal}
-          >
+          <ModalForm title={'Add Product Order'} desc="" isopen={openModal} setIsOpen={setOpenModal}>
             <Form
               form={form}
               ref={formRef}
               layout="vertical"
               onFinish={(values) => {
-                handleCreate(values);
+                handleCreate(values)
               }}
             >
               <Form.Item
                 label="RoomID"
                 name="roomID"
-                rules={[
-                  { required: true, message: "Please input Product name!" },
-                ]}
+                rules={[{ required: true, message: 'Please input Product name!' }]}
               >
                 <Input type="text" size="large" className="w-full" />
               </Form.Item>
               <Form.Item
                 label="ProductID"
                 name="productID"
-                rules={[
-                  { required: true, message: "Please input Product name!" },
-                ]}
+                rules={[{ required: true, message: 'Please input Product name!' }]}
               >
                 <Input type="text" size="large" className="w-full" />
               </Form.Item>
-              <Form.Item
-                label="Quanity"
-                name="quantity"
-                rules={[{ required: true, message: "Please input Price!" }]}
-              >
+              <Form.Item label="Quanity" name="quantity" rules={[{ required: true, message: 'Please input Price!' }]}>
                 <Input type="number" size="large" className="w-full" />
               </Form.Item>
               <Button
@@ -112,14 +92,14 @@ const MaidProductCharge = () => {
                 className="px-6 mt-3 border border-primary-blue rounded-xl w-full"
                 size="large"
               >
-                {"Add order"}
+                {'Add order'}
               </Button>
             </Form>
           </ModalForm>
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default MaidProductCharge;
+export default MaidProductCharge

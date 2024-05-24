@@ -1,40 +1,23 @@
-import { useState } from "react";
-import MyButton from "../components/Button";
+import { Link } from 'react-router-dom'
 
 const Home = () => {
-  const [count, setCount] = useState(0);
-  const [input, setInput] = useState("");
-
-  const Click = () => {
-    setCount(count + 1);
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInput(e.target.value);
-    console.log(input);
-  };
+  // const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   setInput(e.target.value)
+  //   console.log(input)
+  // }
 
   return (
-    <div className="p-10 text-2xl">
-      <div>dsfsdf</div>
-      <br />
-      <button
-        onClick={Click}
-        className="border border-red-500 font-bold cursor-pointer focus:bg-red-500 focus:text-white hover:bg-red-500 hover:text-white px-4 py-2 rounded-md text-red-500 transition-colors w-32"
-      >
-        Click
-        {count}
-      </button>
-      <MyButton name={"first example"} onClick={Click} />
-      {count > 5 ? <p>true</p> : <p>false</p>}
-      <input
-        onChange={handleChange}
-        className="border border-black rounded-2xl p-1"
-        type="text"
-      />
-      <p className="text-base">{input}</p>
-    </div>
-  );
-};
+    <div className="p-10">
+      <h1 className="text-xl font-bold">Hello Welcome to Hotel Califonia</h1>
 
-export default Home;
+      <li className="grid underline text-primary-blue">
+        <Link to="/staff">Staff</Link>
+        <Link to="/maid">Maid</Link>
+        <Link to="/reception/reservation">Reception</Link>
+        <Link to="/manager/dashboard">Manager Dashboard</Link>
+      </li>
+    </div>
+  )
+}
+
+export default Home
