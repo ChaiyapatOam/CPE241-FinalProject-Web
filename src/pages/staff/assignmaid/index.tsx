@@ -46,6 +46,21 @@ const StaffAssignMaid = () => {
       name: 'Waviex Teehidmaiwai',
       roomTypeID: 'T003',
     },
+    {
+      id: 'M003',
+      name: 'Waviex Teehidmaiwai',
+      roomTypeID: 'T003',
+    },
+    {
+      id: 'M003',
+      name: 'Waviex Teehidmaiwai',
+      roomTypeID: 'T003',
+    },
+    {
+      id: 'M003',
+      name: 'Waviex Teehidmaiwai',
+      roomTypeID: 'T003',
+    },
   ]
 
   const columns: ColumnsType = [
@@ -87,7 +102,7 @@ const StaffAssignMaid = () => {
 
   return (
     <>
-      <div className="flex flex-row">
+      <div className="flex flex-row justify-center">
         <div className="basis-3/4">
           <div className="grid grid-cols-2 justify-center items-center place-items-center gap-4 p-6 ">
             <div className="col-span-1">

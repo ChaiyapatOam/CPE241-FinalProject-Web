@@ -5,8 +5,8 @@ const { Search } = Input
 const AllService = () => {
   return (
     <>
-      <div className="flex flex-row">
-        <div className="basis-4/5 flex flex-col items-center mr-10">
+      <div className="flex flex-row justify-center">
+        <div className="basis-4/5 flex flex-col items-center">
           <div className="flex flex-row items-center w-8/12 mb-2">
             <div className="basis-2/4 flex flex-row">
               <label className="mr-3 place-content-center">Search</label>

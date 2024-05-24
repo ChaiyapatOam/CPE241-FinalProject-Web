@@ -126,7 +126,7 @@ const StaffService = () => {
 
   return (
     <>
-      <div className="ml-10  text-xl">
+      <div className="ml-10  text-xl my-5">
         <label className="mr-3"> Search :</label>
         <Search
           placeholder="ServiceId, Service name.."
@@ -137,15 +137,15 @@ const StaffService = () => {
           style={{ width: 200 }}
         />
       </div>
-      <p className="text-xl ml-10"> Add new Service</p>
-      <div className="flex justify-around">
+      <p className="text-xl ml-10 "> Add new Service</p>
+      <div className="flex justify-evenly mt-5 ">
         <div>
           <label className="mr-3">Service Name</label>
-          <input className="border border-dark-gray rounded-md pl-2" placeholder="name" />
+          <input className="border rounded-md pl-2" placeholder="name" />
         </div>
         <div>
-          <label className="ml-10 mr-3">Fee</label>
-          <input className="border border-dark-gray rounded-md pl-2" />
+          <label className="ml-10 mr-3">Cost</label>
+          <input className="border rounded-md pl-2" placeholder="Cost" />
         </div>
         <Button
           onClick={() => {
@@ -226,4 +226,4 @@ const StaffService = () => {
   )
 }
 
-export default StaffService
+export default StaffService;

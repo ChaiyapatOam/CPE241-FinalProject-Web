@@ -5,7 +5,7 @@ const { Search } = Input
 const AllService = () => {
   return (
     <>
-      <div className="flex flex-row">
+      <div className="flex flex-row justify-center">
         <div className="basis-4/5 flex flex-col items-center mr-10">
           <div className="flex flex-row items-center w-8/12 mb-2">
             <div className="basis-2/4 flex flex-row">
@@ -54,7 +54,7 @@ const AllService = () => {
                   <h1 className="font-medium">No. of Guests : &nbsp;</h1> 3
                 </div>
               </div>
-              <div className="col-span-1 bg-primary-blue rounded-r-xl py-3 pr-3 text-right">
+              <div className="col-span-1 bg-primary-blue rounded-r-xl py-5 pr-3 text-right">
                 <div className="text-white">
                   <h1 className="font-medium">Check in date :&nbsp;</h1> <h1>13/02/2023</h1>
                 </div>
@@ -82,7 +82,7 @@ const AllService = () => {
                   <h1 className="font-medium">No. of Guests : &nbsp;</h1> 3
                 </div>
               </div>
-              <div className="col-span-1 bg-primary-blue rounded-r-xl py-3 pr-3 text-right">
+              <div className="col-span-1 bg-primary-blue rounded-r-xl py-5 pr-3 text-right">
                 <div className="text-white">
                   <h1 className="font-medium">Check in date &nbsp;</h1> <h1>13/02/2023</h1>
                 </div>
@@ -110,7 +110,7 @@ const AllService = () => {
                   <h1 className="font-medium">No. of Guests : &nbsp;</h1> 3
                 </div>
               </div>
-              <div className="col-span-1 bg-primary-blue rounded-r-xl py-3 pr-3 text-right">
+              <div className="col-span-1 bg-primary-blue rounded-r-xl py-5 pr-3 text-right">
                 <div className="text-white">
                   <h1 className="font-medium">Check in date :&nbsp;</h1> <h1>13/02/2023</h1>
                 </div>

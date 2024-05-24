@@ -80,8 +80,8 @@ const StaffAvaliableRoom = () => {
 
   return (
     <>
-      <div className="grid grid-cols-3 justify-center items-center place-items-center gap-4 p-6 ">
-        <div className="col-span-1 w-8/12">
+      <div className="flex flex-row justify-center items-center place-items-center gap-4 p-6 ">
+        <div className="col-span-1 w-4/12">
           <label className="mr-3 w-3/12">Room Type</label>
           <Select
             className="w-6/12"
@@ -96,7 +96,7 @@ const StaffAvaliableRoom = () => {
             <Option value="3">Deluxe</Option>
           </Select>
         </div>
-        <div className="col-span-1">
+        {/* <div className="col-span-1">
           <label className="mr-3">start date</label>
           <Search
             placeholder="DD/MM/YYYY"
@@ -106,20 +106,18 @@ const StaffAvaliableRoom = () => {
             }}
             style={{ width: 200 }}
           />
-        </div>
-        <div className="col-span-1">
-          <label className="mr-3">End date</label>
-          <Search
-            placeholder="DD/MM/YYYY"
-            allowClear
-            onSearch={(onSearch) => {
-              console.log(onSearch)
-            }}
-            style={{ width: 200 }}
-          />
-        </div>
+        </div> */}
+        <Form.Item
+          label={<p className="font-bold">Date Select</p>}
+          hasFeedback
+          className='pt-5'
+        >
+          <div >
+            <DateTime />
+          </div>
+        </Form.Item>
       </div>
-      <div className="px-40">
+      <div className="px-60">
         <MyTable dataSource={Room} rowKey={(record) => record.id} columns={columns} />
       </div>
       <ModalForm
@@ -137,7 +135,8 @@ const StaffAvaliableRoom = () => {
             isEdit ? handleEdit(values) : handleCreate(values)
           }}
         >
-          <div className="col-span-1 md:col-span-3">
+
+          {/* <div className="col-span-1 md:col-span-3">
             <Form.Item
               name="StartDate"
               label={<p className="font-bold">Start Date</p>}
@@ -149,23 +148,22 @@ const StaffAvaliableRoom = () => {
                 <DateTime />
               </div>
             </Form.Item>
-          </div>
+          </div> */}
 
           <div className="col-span-1 md:col-span-3">
             <Form.Item
               name="EndDate"
-              label={<p className="font-bold">End Date</p>}
+              label={<p className="font-bold">Date Range</p>}
               rules={[{ required: true, message: 'กรุณากรอกเวลาที่สิ้นสุด' }]}
               hasFeedback
             >
               <div className="">
-                <label className="">Date Select &nbsp;</label>
                 <DateTime />
               </div>
             </Form.Item>
           </div>
           <Button
-            onClick={() => {}}
+            onClick={() => { }}
             htmlType="submit"
             className="px-6 border border-primary-blue rounded-xl"
             size="large"

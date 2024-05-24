@@ -47,6 +47,7 @@ const StaffRoomType = () => {
       title: 'RoomTypeID',
       dataIndex: 'id',
       key: 'id',
+      align: 'center',
     },
     {
       title: 'RoomType',
@@ -92,29 +93,16 @@ const StaffRoomType = () => {
 
   return (
     <>
-      <div className="grid grid-cols-3 justify-center items-center gap-4 p-6">
+      <div className="flex flex-row justify-evenly ">
         <div className="col-span-1">
           <Search
-            placeholder="employee ID"
+            placeholder="Room Type Name.."
             allowClear
             onSearch={(onSearch) => {
               console.log(onSearch)
             }}
             style={{ width: 200 }}
           />
-        </div>
-        <div className="col-span-1">
-          <Select
-            className="w-1/2"
-            size="large"
-            labelInValue
-            onChange={(e) => {
-              console.log(e.label)
-            }}
-          >
-            <Option value="1">Room Type</Option>
-            <Option value="2">Max People</Option>
-          </Select>
         </div>
         <div>
           <Button
@@ -130,7 +118,7 @@ const StaffRoomType = () => {
           </Button>
         </div>
       </div>
-      <div className="px-40">
+      <div className="px-60">
         <MyTable dataSource={RoomType} rowKey={(record) => record.id} columns={columns} />
       </div>
       <ModalForm
