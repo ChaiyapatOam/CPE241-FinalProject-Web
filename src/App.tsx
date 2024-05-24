@@ -21,6 +21,7 @@ import Dashboard from './pages/manager/Dashboard'
 import StaffAllService from './pages/staff/allService'
 import StaffHistoryBooking from './pages/staff/historyBooking'
 import ReceptAddServiceRoom from './pages/reception/addServiceRoom'
+import ReceptRoomPayment from './pages/reception/roomPayment'
 
 const App = () => {
   return (
@@ -55,6 +56,7 @@ const App = () => {
               <Route path="payment-booking" element={<ReceptPayment />} />
               <Route path="payment" element={<Payment />} />
               <Route path="room-service" element={<ReceptAddServiceRoom />} />
+              <Route path="booking-payment" element={<ReceptRoomPayment />} />
             </Route>
 
             <Route path="manager" element={<StaffLayout />}>

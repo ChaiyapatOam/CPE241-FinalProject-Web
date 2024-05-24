@@ -123,4 +123,9 @@ export const pageTitleList = [
     title: 'Call Room Service',
     // icon: <RiMoneyDollarCircleLine style={{ fontSize: '24px' }} />,
   },
+  {
+    path: '/reception/booking-payment',
+    title: 'Booking Payment',
+    // icon: <RiMoneyDollarCircleLine style={{ fontSize: '24px' }} />,
+  },
 ]
