@@ -72,48 +72,48 @@ const Payment = () => {
 
   return (
     <>
-      <div className="flex flex-row">
+      <div className="flex flex-row justify-center ">
         <div className="basis-2/4">
           <h1 className="text-xl ml-6 font-semibold">Payment ID #P011232</h1>
-          <div className="flex flex-col drop-shadow-md rounded bg-white mt-3 ">
+          <div className="flex flex-col drop-shadow-md rounded-xl bg-white mt-3 ">
             <div className="basis-2/4 mb-10 ">
-              <div className="flex flex-row border-b-2">
+              <div className="flex flex-row border-b-2 font-bold">
                 <div className="basis-2/4 p-2">Name</div>
-                <div className="basis-1/4 p-2">Quantity</div>
-                <div className="basis-1/4 p-2">Price</div>
+                <div className="basis-1/4 p-2 text-center">Quantity</div>
+                <div className="basis-1/4 p-2 text-center">Price</div>
               </div>
               <div className="flex flex-row border-b-2">
                 <div className="basis-2/4 p-2">Sing water by Kabigon</div>
-                <div className="basis-1/4 p-2">3</div>
-                <div className="basis-1/4 p-2">60</div>
+                <div className="basis-1/4 p-2 text-center">3</div>
+                <div className="basis-1/4 p-2 text-center">60</div>
               </div>
               <div className="flex flex-row border-b-2">
                 <div className="basis-2/4 p-2">Sing water by Kabigon</div>
-                <div className="basis-1/4 p-2">3</div>
-                <div className="basis-1/4 p-2">60</div>
+                <div className="basis-1/4 p-2 text-center">3</div>
+                <div className="basis-1/4 p-2 text-center">60</div>
               </div>
               <div className="flex flex-row border-b-2">
                 <div className="basis-2/4 p-2">Sing water by Kabigon</div>
-                <div className="basis-1/4 p-2">3</div>
-                <div className="basis-1/4 p-2">60</div>
+                <div className="basis-1/4 p-2 text-center">3</div>
+                <div className="basis-1/4 p-2 text-center">60</div>
               </div>
             </div>
             <div className="basis-1/4 mt-10 ">
               <div className="flex flex-row border-b-2">
                 <div className="basis-2/4 p-2">Discount</div>
                 <div className="basis-1/4 p-2 "></div>
-                <div className="basis-1/4 p-2 ">5%</div>
+                <div className="basis-1/4 p-2 text-center">5%</div>
               </div>
               <div className="flex flex-row border-b-2">
                 <div className="basis-2/4 p-2">Total cost</div>
                 <div className="basis-1/4 p-2 "></div>
-                <div className="basis-1/4 p-2 ">60</div>
+                <div className="basis-1/4 p-2 text-center">60</div>
               </div>
             </div>
           </div>
         </div>
         <div className="basis-1/4 p-5 justify-center">
-          <div className="p-10 bg-white border border-dark-grey">
+          <div className="p-10 bg-white border border-dark-grey rounded-xl">
             <h1 className="text-xl font-semibold">BookingID : #B069069</h1>
             <h1 className="text-lg">Customer : #C0001</h1>
             <h1 className="text-lg">Pattaranun Ayaprasitphol</h1>
@@ -132,9 +132,9 @@ const Payment = () => {
                 use code
               </Button>
             </Form.Item>
-            <Form.Item label="Payment Method" name="fieldA" valuePropName="checked">
-              <Checkbox value="Cash" />
-              <Checkbox value="Credit" />
+            <Form.Item label="Payment Method" name="fieldA" valuePropName="checked" className='flex flex-col'>
+              <input type="checkbox" value="Cash" />
+              <input type="checkbox" value="Credit"/>
             </Form.Item>
             <Button
               onClick={(e) => {

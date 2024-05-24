@@ -16,7 +16,7 @@ const Dashboard = () => {
 
   return (
     <>
-      <div className="">
+      <div className="flex flex-row justify-center">
         <div className="ml-10">
           <div className="flex flex-col ml-5">
             <div className="flex flex-row">
@@ -75,7 +75,7 @@ const Dashboard = () => {
                     </div>
                     <h1 className="ml-7 mt-1">Persons a trip</h1>
                   </div>
-                  <div className="w-10/12 bg-white rounded-lg mx-4 drop-shadow-xl p-3">
+                  <div className="w-9/12 bg-white rounded-lg mx-4 drop-shadow-xl p-3">
                     <h1 className="text-2xl font-semibold ml-3 mt-1">Lastest booking in 7 days</h1>
                     <BarChart chartData={userData} />
                   </div>

@@ -75,7 +75,7 @@ const MaidHistoryService = () => {
 
   return (
     <>
-      <div className="px-50">
+      <div className="px-40">
         <MyTable dataSource={service} rowKey={(record) => record.id} columns={columns} />
       </div>
       <ModalForm

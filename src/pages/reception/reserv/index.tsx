@@ -5,7 +5,6 @@ import { useEffect, useRef, useState } from "react";
 import MyTable from "@/components/Table";
 import ModalForm from "@/components/ModalForm";
 import StaffNavBar from "@/components/StaffNavBar";
-import Checkbox from "@/components/Checkbox";
 
 const Reserve = () => {
   const room = [
@@ -21,7 +20,7 @@ const Reserve = () => {
   ]
   return (
     <>
-      <div className="flex flex-row">
+      <div className="flex flex-row justify-center ">
         <div className="basis-3/4">
           <div className="grid grid-cols-2">
             <div className="col-span-1 grid">
@@ -64,7 +63,7 @@ const Reserve = () => {
                 </Form.Item>
 
                 <Button
-                  onClick={() => {}}
+                  onClick={() => { }}
                   htmlType="submit"
                   className="px-6 border bg-primary-blue rounded-xl place-items-center text-white justify-self-center mr-10"
                   size="large"
@@ -73,19 +72,26 @@ const Reserve = () => {
                   See avaliable room
                 </Button>
               </div>
-              <h1 className="text-dark-grey text-xl underline underline-offset-8 decoration-primary-blue m-5 mb-8">
-                Avaliable Rooms
-              </h1>
-              <div>
-                <Form.Item name="fieldA" valuePropName="checked">
-                  <Checkbox value="Finch" />
-                </Form.Item>
-                <Form.Item name="fieldA" valuePropName="checked">
-                  <Checkbox value="Boat" />
-                </Form.Item>
-                <Form.Item name="fieldA" valuePropName="checked">
-                  <Checkbox value="Oam" />
-                </Form.Item>
+              <div className="bg-white mt-10 mr-10 border rounded-xl ">
+                <h1 className="text-dark-grey text-xl underline underline-offset-8 decoration-primary-blue m-5 mb-8">
+                  Avaliable Rooms
+                </h1>
+                <div className="pl-5">
+                  <Form.Item name="fieldA" valuePropName="checked">
+                    <input type='checkbox'/>
+                  </Form.Item>
+                  <Form.Item name="fieldA" valuePropName="checked">
+                    <input type='checkbox' value="Boat" />
+                  </Form.Item>
+                  <Form.Item name="fieldA" valuePropName="checked">
+                    <input type='checkbox' value="Oam" />
+                  </Form.Item>
+                  <Form.Item name="fieldA" valuePropName="checked">
+                    <input type='checkbox' value="Oam" />
+                  </Form.Item>
+                  
+                </div>
+
               </div>
             </div>
             <div className="col-span-1 grid">
@@ -94,21 +100,21 @@ const Reserve = () => {
               </h1>
               <Form.Item
                 label="Phone number"
-                name="phoneNumber"
+                name="phone_number"
                 rules={[{ required: true, message: 'Please input Phone number!' }]}
               >
                 <Input type="text" size="large" className="w-6/12 rounded-md" />
               </Form.Item>
               <Form.Item
                 label="First Name"
-                name="firstName"
+                name="first_name"
                 rules={[{ required: true, message: 'Please input First name!' }]}
               >
                 <Input type="text" size="large" className="w-6/12 rounded-md" />
               </Form.Item>
               <Form.Item
                 label="Last Name"
-                name="lastName"
+                name="last_name"
                 rules={[{ required: true, message: 'Please input Last name!' }]}
               >
                 <Input type="text" size="large" className="w-6/12 rounded-md" />
@@ -124,7 +130,7 @@ const Reserve = () => {
                 <Input type="number" size="large" className="w-6/12 rounded-md" />
               </Form.Item>
               <Button
-                onClick={() => {}}
+                onClick={() => { }}
                 htmlType="submit"
                 className="px-6 border bg-primary-blue rounded-xl place-items-center text-white w-4/12"
                 size="large"

@@ -28,7 +28,7 @@ const MaidProductCharge = () => {
 
   return (
     <>
-      <div className="flex flex-row">
+      <div className="flex flex-row justify-center">
         <div className="basis-3/4">
           <div className="bg-white rounded-lg drop-shadow-md ml-10 mr-10">
             <div className="bg-primary-blue p-4 text-secondary rounded-t-lg ">

@@ -52,6 +52,7 @@ const ManagerStaffManage = () => {
       title: 'EmployeeD',
       dataIndex: 'id',
       key: 'id',
+      align: 'center',
     },
     {
       title: 'First Name',
@@ -131,7 +132,7 @@ const ManagerStaffManage = () => {
           </Button>
         </div>
       </div>
-      <div className="px-40">
+      <div className="px-60">
         <MyTable dataSource={RoomType} rowKey={(record) => record.id} columns={columns} />
       </div>
       <ModalForm title={'Edit employee information'} desc="" isopen={openModal} setIsOpen={setOpenModal}>
