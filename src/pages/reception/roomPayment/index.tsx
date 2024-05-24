@@ -7,7 +7,7 @@ import ModalForm from '@/components/ModalForm'
 const { Search } = Input
 const { Option } = Select
 
-const ReceptAddRoomService = () => {
+const ReceptPaymentBooking = () => {
     const [openModal, setOpenModal] = useState(false)
     const [isEdit, setIsEdit] = useState(false)
     const [selectedRoomType, setSelectedRoomType] = useState({} as any)
@@ -151,4 +151,4 @@ const ReceptAddRoomService = () => {
     )
 }
 
-export default ReceptAddRoomService
+export default ReceptPaymentBooking
