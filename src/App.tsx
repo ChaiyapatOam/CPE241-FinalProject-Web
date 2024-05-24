@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom'
-import Home from './pages/Home'
 import { ConfigProvider } from 'antd'
+import Home from './pages/Home'
 import { theme } from './utils/theme'
 import StaffLayout from './pages/staff'
 import StaffHome from './pages/staff/home'
