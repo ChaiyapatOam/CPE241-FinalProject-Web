@@ -4,6 +4,7 @@ import { ColumnsType } from 'antd/es/table'
 import { useEffect, useRef, useState } from 'react'
 import MyTable from '@/components/Table'
 import ModalForm from '@/components/ModalForm'
+import DateTime from '@/components/DateTime'
 
 const { Search } = Input
 const { Option } = Select
@@ -92,7 +93,7 @@ const StaffAvaliableRoom = () => {
           >
             <Option value="1">Regular</Option>
             <Option value="2">King Size</Option>
-            <Option value="2">Deluxe</Option>
+            <Option value="3">Deluxe</Option>
           </Select>
         </div>
         <div className="col-span-1">
@@ -136,30 +137,7 @@ const StaffAvaliableRoom = () => {
             isEdit ? handleEdit(values) : handleCreate(values)
           }}
         >
-          {/* <Form.Item
-            label="Coupon Code"
-            name="code"
-            rules={[{ required: true, message: "Please input Coupon Code!" }]}
-          >
-            <Input type="text" size="large" className="w-full" />
-          </Form.Item>
-          <Form.Item
-            label="Discount Percentage"
-            name="discount"
-            rules={[
-              { required: true, message: "Please input Discount Percentage!" },
-            ]}
-          >
-            <Input type="number" size="large" className="w-full" />
-          </Form.Item>
-          <Form.Item
-            label="Amount"
-            name="amount"
-            rules={[{ required: true, message: "Please input Amount!" }]}
-          >
-            <Input type="number" size="large" className="w-full" />
-          </Form.Item> */}
-
+  
           <div className="col-span-1 md:col-span-3">
             <Form.Item
               name="StartDate"
@@ -167,24 +145,13 @@ const StaffAvaliableRoom = () => {
               rules={[{ required: true, message: 'กรุณากรอกเวลาที่เริ่ม' }]}
               hasFeedback
             >
-              <TimePicker
-                size="large"
-                labelInValue
-                onChange={(e) => {
-                  console.log(e.label);
-                }}
-              >
-                <Option value="1">Regular</Option>
-                <Option value="2">King Size</Option>
-                <Option value="2">Deluxe</Option>
-              </Select>
-            </div>
             <div className="">
               <label className="">Date Select &nbsp;</label>
               <DateTime />
             </div>
+            </Form.Item>
           </div>
-
+          
           <div className="col-span-1 md:col-span-3">
             <Form.Item
               name="EndDate"
@@ -192,14 +159,10 @@ const StaffAvaliableRoom = () => {
               rules={[{ required: true, message: 'กรุณากรอกเวลาที่สิ้นสุด' }]}
               hasFeedback
             >
-              <TimePicker
-                size="large"
-                format="HH:mm"
-                needConfirm={false}
-                minuteStep={15}
-                showNow={false}
-                className="w-full"
-              />
+              <div className="">
+              <label className="">Date Select &nbsp;</label>
+              <DateTime />
+              </div>
             </Form.Item>
           </div>
           <Button
