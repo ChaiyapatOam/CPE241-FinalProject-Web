@@ -21,6 +21,7 @@ import Dashboard from "./pages/manager/Dashboard";
 import StaffAllService from "./pages/staff/allService";
 import StaffHistoryBooking from "./pages/staff/historyBooking";
 
+
 const App = () => {
   return (
     <Router>
@@ -30,7 +31,6 @@ const App = () => {
           <Route path="/" element={<Home />} />
             <Route path="staff" element={<StaffLayout />}>
               <Route index element={<StaffHome />} />
-              <Route path="avaliable" element={<StaffRoomType />} />
               <Route path="service-booking" element={<StaffRoomType />} />
               <Route path="booking" element={<StaffRoomType />} />
               <Route path="roomtype" element={<StaffRoomType />} />

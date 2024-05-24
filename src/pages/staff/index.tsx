@@ -12,10 +12,6 @@ const StaffLayout = () => {
       title: "Room Type",
     },
     {
-      path: "/staff/avaliable",
-      title: "Avaliable",
-    },
-    {
       path: "/staff/service-booking",
       title: "Service Booking",
     },
@@ -91,11 +87,16 @@ const StaffLayout = () => {
 
   return (
     < >
-      <h1 className="text-2xl text-dark-grey font-bold p-5">
-        <span className="px-4 py-1 bg-secondary rounded-full w-full">
+    <div className="flex flex-row pt-10 mb-8">
+      <div className="basis-4/12 text-right">
+      <h1 className="text-3xl text-dark-grey font-bold p-5">
+        <span className="pl-10 pr-10 py-3 bg-secondary rounded-full w-full">
           {pageTitle.filter((page) => page.path === location.pathname)[0].title}
         </span>
       </h1>
+      </div>
+    </div>
+      
       <Outlet />
     </>
   );
