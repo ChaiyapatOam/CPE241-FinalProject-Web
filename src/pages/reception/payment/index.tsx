@@ -132,9 +132,9 @@ const Payment = () => {
                 use code
               </Button>
             </Form.Item>
-            <Form.Item label="Payment Method" name="fieldA" valuePropName="checked" className='flex flex-col'>
+            <Form.Item label="Payment Method" name="fieldA" valuePropName="checked" className="flex flex-col">
               <input type="checkbox" value="Cash" />
-              <input type="checkbox" value="Credit"/>
+              <input type="checkbox" value="Credit" />
             </Form.Item>
             <Button
               onClick={(e) => {

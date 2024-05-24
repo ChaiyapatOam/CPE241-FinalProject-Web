@@ -1,4 +1,4 @@
-import { Button, Checkbox, Form, Input, Select, TimePicker } from 'antd'
+import { Button, Form, Input, TimePicker } from 'antd'
 // import { DeleteOutlined } from "@ant-design/icons";
 import { ColumnsType } from 'antd/es/table'
 import { useEffect, useRef, useState } from 'react'
@@ -148,7 +148,7 @@ const StaffService = () => {
           <input className="border rounded-md pl-2" placeholder="Cost" />
         </div>
         <Button
-          onClick={() => {
+          onClick={(e) => {
             setSelectCoupon(e)
             setIsEdit(true)
             setOpenModal(true)
@@ -226,4 +226,4 @@ const StaffService = () => {
   )
 }
 
-export default StaffService;
+export default StaffService

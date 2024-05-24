@@ -1,42 +1,55 @@
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import pic from '../assets/LoginPic.jpeg'
+import { Button, Form, Input } from 'antd'
 
 const Home = () => {
+  const navigate = useNavigate()
+
   // const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
   //   setInput(e.target.value)
   //   console.log(input)
   // }
-
+  const onFinish = (values: any) => {
+    console.log('Success:', values)
+    navigate('/staff')
+  }
   return (
-    // <div className="p-10">
-    //   <h1 className="text-xl font-bold">Hello Welcome to Hotel Califonia</h1>
-
-    //   <li className="grid underline text-primary-blue">
-    //     <Link to="/staff">Staff</Link>
-    //     <Link to="/maid">Maid</Link>
-    //     <Link to="/reception/reservation">Reception</Link>
-    //     <Link to="/manager/dashboard">Manager Dashboard</Link>
-    //   </li>
-    // </div>
     <div className="flex flex-row h-screen">
-      <div className="basis-1/2 m-0 " id="side-bar" >
+      <div className="basis-1/2 m-0 " id="side-bar">
         <img src={pic} alt="Hotel Pic" className="size-full " />
       </div>
       <div className="basis-1/2 flex flex-col justify-center items-center" id="Welcome-text">
         <div className="text-left">
-            <h1 className="font-semibold text-2xl p">Welcome Back</h1>
-            <p className="text-lg" >Log in to management system of kabidgon hotel</p>
+          <h1 className="font-semibold text-2xl p">Welcome Back</h1>
+          <p className="text-lg">Log in to management system of kabidgon hotel</p>
         </div>
-        <div className='flex flex-col w-4/12 text-xl my-2'>
-            <label>Email</label>
-            <input type="email" className='border rounded-sm'/>
-            <label>Password</label>
-            <input type="password" className='border rounded-sm'/>
-        </div>
-        <button type="submit" className="border rounded-md text-white bg-primary-blue mt-5 pt-2 pb-2 w-4/12" >
+        <Form layout="vertical" initialValues={{ remember: true }} onFinish={onFinish} className="w-1/2">
+          <Form.Item
+            label="Username"
+            name="username"
+            rules={[{ required: true, message: 'Please input your username!' }]}
+          >
+            <Input size="large" />
+          </Form.Item>
+
+          <Form.Item
+            label="Password"
+            name="password"
+            rules={[{ required: true, message: 'Please input your password!' }]}
+          >
+            <Input.Password size="large" />
+          </Form.Item>
+
+          {/* <Form.Item className="flex justify-center">
+            <Button type="default" size="large" className="!bg-orange !text-white" htmlType="submit">
+              Login
+            </Button>
+          </Form.Item> */}
+          <Button htmlType="submit" type="primary" className="border rounded-md text-white bg-primary-blue mt-5 w-4/12">
             Log In
-        </button>
-    </div>
+          </Button>
+        </Form>
+      </div>
     </div>
   )
 }
