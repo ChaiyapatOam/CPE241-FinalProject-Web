@@ -20,6 +20,7 @@ import Payment from './pages/reception/payment'
 import Dashboard from './pages/manager/Dashboard'
 import StaffAllService from './pages/staff/allService'
 import StaffHistoryBooking from './pages/staff/historyBooking'
+import ReceptAddServiceRoom from './pages/reception/addServiceRoom'
 
 const App = () => {
   return (
@@ -31,7 +32,6 @@ const App = () => {
 
             <Route path="staff" element={<StaffLayout />}>
               <Route index element={<Navigate replace to="/staff/avaliable" />} />
-              <Route path="service-booking" element={<StaffRoomType />} />
               <Route path="roomtype" element={<StaffRoomType />} />
               <Route path="promotion" element={<StaffPromotion />} />
               <Route path="all-service" element={<StaffAllService />} />
@@ -54,6 +54,7 @@ const App = () => {
               <Route path="reservation" element={<ReceptReserve />} />
               <Route path="payment-booking" element={<ReceptPayment />} />
               <Route path="payment" element={<Payment />} />
+              <Route path="room-service" element={<ReceptAddServiceRoom />} />
             </Route>
 
             <Route path="manager" element={<StaffLayout />}>
