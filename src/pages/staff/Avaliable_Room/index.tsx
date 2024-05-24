@@ -107,12 +107,8 @@ const StaffAvaliableRoom = () => {
             style={{ width: 200 }}
           />
         </div> */}
-        <Form.Item
-          label={<p className="font-bold">Date Select</p>}
-          hasFeedback
-          className='pt-5'
-        >
-          <div >
+        <Form.Item label={<p className="font-bold">Date Select</p>} hasFeedback className="pt-5">
+          <div>
             <DateTime />
           </div>
         </Form.Item>
@@ -135,7 +131,6 @@ const StaffAvaliableRoom = () => {
             isEdit ? handleEdit(values) : handleCreate(values)
           }}
         >
-
           {/* <div className="col-span-1 md:col-span-3">
             <Form.Item
               name="StartDate"
@@ -163,7 +158,7 @@ const StaffAvaliableRoom = () => {
             </Form.Item>
           </div>
           <Button
-            onClick={() => { }}
+            onClick={() => {}}
             htmlType="submit"
             className="px-6 border border-primary-blue rounded-xl"
             size="large"
