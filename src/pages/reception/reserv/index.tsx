@@ -1,10 +1,4 @@
-import { Button, Form, Input, Select } from "antd";
-import { DeleteOutlined } from "@ant-design/icons";
-import { ColumnsType } from "antd/es/table";
-import { useEffect, useRef, useState } from "react";
-import MyTable from "@/components/Table";
-import ModalForm from "@/components/ModalForm";
-import StaffNavBar from "@/components/StaffNavBar";
+import { Button, Form, Input, Select } from 'antd'
 
 const Reserve = () => {
   const room = [
@@ -63,7 +57,7 @@ const Reserve = () => {
                 </Form.Item>
 
                 <Button
-                  onClick={() => { }}
+                  onClick={() => {}}
                   htmlType="submit"
                   className="px-6 border bg-primary-blue rounded-xl place-items-center text-white justify-self-center mr-10"
                   size="large"
@@ -78,20 +72,18 @@ const Reserve = () => {
                 </h1>
                 <div className="pl-5">
                   <Form.Item name="fieldA" valuePropName="checked">
-                    <input type='checkbox'/>
+                    <input type="checkbox" />
                   </Form.Item>
                   <Form.Item name="fieldA" valuePropName="checked">
-                    <input type='checkbox' value="Boat" />
+                    <input type="checkbox" value="Boat" />
                   </Form.Item>
                   <Form.Item name="fieldA" valuePropName="checked">
-                    <input type='checkbox' value="Oam" />
+                    <input type="checkbox" value="Oam" />
                   </Form.Item>
                   <Form.Item name="fieldA" valuePropName="checked">
-                    <input type='checkbox' value="Oam" />
+                    <input type="checkbox" value="Oam" />
                   </Form.Item>
-                  
                 </div>
-
               </div>
             </div>
             <div className="col-span-1 grid">
@@ -130,7 +122,7 @@ const Reserve = () => {
                 <Input type="number" size="large" className="w-6/12 rounded-md" />
               </Form.Item>
               <Button
-                onClick={() => { }}
+                onClick={() => {}}
                 htmlType="submit"
                 className="px-6 border bg-primary-blue rounded-xl place-items-center text-white w-4/12"
                 size="large"

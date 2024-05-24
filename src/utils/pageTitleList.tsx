@@ -1,8 +1,7 @@
-import { FileOutlined, HistoryOutlined, HomeOutlined } from '@ant-design/icons'
+import { HistoryOutlined, HomeOutlined } from '@ant-design/icons'
 import { FaRegCalendarCheck } from 'react-icons/fa'
 import { FaRegFileLines } from 'react-icons/fa6'
 import { FiUsers } from 'react-icons/fi'
-import { IoBookmarksOutline, IoBookOutline } from 'react-icons/io5'
 import { LiaGlassCheersSolid } from 'react-icons/lia'
 import {
   MdOutlineBedroomChild,
@@ -19,26 +18,26 @@ export const pageTitleList = [
     title: 'Home',
     icon: <HomeOutlined style={{ fontSize: '24px' }} />,
   },
-  {
-    path: '/staff/avaliable',
-    title: 'Avaliable',
-    icon: <FileOutlined style={{ fontSize: '24px' }} />,
-  },
+  // {
+  //   path: '/staff/avaliable',
+  //   title: 'Avaliable',
+  //   icon: <FileOutlined style={{ fontSize: '24px' }} />,
+  // },
   {
     path: '/staff/roomtype',
     title: 'Room Type',
     icon: <MdOutlineBedroomChild style={{ fontSize: '24px' }} />,
   },
-  {
-    path: '/staff/service-booking',
-    title: 'Service Booking',
-    icon: <IoBookOutline style={{ fontSize: '24px' }} />,
-  },
-  {
-    path: '/staff/booking',
-    title: 'Booking',
-    icon: <IoBookmarksOutline style={{ fontSize: '24px' }} />,
-  },
+  // {
+  //   path: '/staff/service-booking',
+  //   title: 'Service Booking',
+  //   icon: <IoBookOutline style={{ fontSize: '24px' }} />,
+  // },
+  // {
+  //   path: '/staff/booking',
+  //   title: 'Booking',
+  //   icon: <IoBookmarksOutline style={{ fontSize: '24px' }} />,
+  // },
   {
     path: '/staff/promotion',
     title: 'Promotion',
@@ -55,7 +54,7 @@ export const pageTitleList = [
     icon: <LiaGlassCheersSolid style={{ fontSize: '24px' }} />,
   },
   {
-    path: '/staff/avaliable-room',
+    path: '/staff/avaliable',
     title: 'Avaliable Room',
     icon: <MdOutlineCheckroom style={{ fontSize: '24px' }} />,
   },

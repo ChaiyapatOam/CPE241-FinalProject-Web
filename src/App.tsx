@@ -31,15 +31,13 @@ const App = () => {
 
             <Route path="staff" element={<StaffLayout />}>
               <Route index element={<Navigate replace to="/staff/avaliable" />} />
-              <Route path="avaliable" element={<StaffRoomType />} />
               <Route path="service-booking" element={<StaffRoomType />} />
-              <Route path="booking" element={<StaffRoomType />} />
               <Route path="roomtype" element={<StaffRoomType />} />
               <Route path="promotion" element={<StaffPromotion />} />
               <Route path="all-service" element={<StaffAllService />} />
               <Route path="service" element={<StaffService />} />
               <Route path="product" element={<StaffProduct />} />
-              <Route path="avaliable-room" element={<StaffAvaliableRoom />} />
+              <Route path="avaliable" element={<StaffAvaliableRoom />} />
               <Route path="assign-maid" element={<StaffAssignMaid />} />
               <Route path="history-booking" element={<StaffHistoryBooking />} />
             </Route>

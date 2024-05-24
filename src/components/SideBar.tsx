@@ -1,10 +1,11 @@
 import { pageTitleList } from '@/utils/pageTitleList'
 import { Button, Layout, Menu } from 'antd'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 const { Sider } = Layout
 
 const SideBar = () => {
   const location = useLocation()
+  const navigate = useNavigate()
   return (
     <div className="h-screen overflow-visible animate-fade-right delay-300">
       <Sider width={250}>
@@ -36,10 +37,15 @@ const SideBar = () => {
                 )
               })}
           </Menu>
-          <div className='p-9 bg-white'></div>
+          <div className="p-9 bg-white"></div>
           <div className="w-full block absolute bottom-1 overflow-hidden">
             <div className="grid grid-cols-1 place-items-center">
-              <Button onClick={() => {}} className="flex items-center border-2 border-white rounded-xl px-3 py-1 fixed bottom-10">
+              <Button
+                onClick={() => {
+                  navigate('/')
+                }}
+                className="flex items-center border-2 border-white rounded-xl px-3 py-1 fixed bottom-10"
+              >
                 Log out
               </Button>
             </div>
