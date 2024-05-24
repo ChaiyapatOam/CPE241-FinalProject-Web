@@ -21,7 +21,6 @@ import Dashboard from './pages/manager/Dashboard'
 import StaffAllService from './pages/staff/allService'
 import StaffHistoryBooking from './pages/staff/historyBooking'
 
-
 const App = () => {
   return (
     <Router>
