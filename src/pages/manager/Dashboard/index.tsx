@@ -76,7 +76,7 @@ const Dashboard = () => {
                     <h1 className="ml-7 mt-1">Persons a trip</h1>
                   </div>
                   <div className="w-9/12 bg-white rounded-lg mx-4 drop-shadow-xl p-3">
-                    <h1 className="text-2xl font-semibold ml-3 mt-1">Lastest booking in 7 days</h1>
+                    <h1 className="text-2xl font-semibold ml-3 mt-1">Latest booking in 7 days</h1>
                     <BarChart chartData={userData} />
                   </div>
                 </div>

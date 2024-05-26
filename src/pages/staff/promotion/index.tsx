@@ -1,9 +1,13 @@
-import { Button, Checkbox, Form, Input, Select, TimePicker } from 'antd'
+import { Button, Checkbox, DatePicker, Form, Input, Select, Tag } from 'antd'
 // import { DeleteOutlined } from "@ant-design/icons";
 import { ColumnsType } from 'antd/es/table'
 import { useEffect, useRef, useState } from 'react'
 import MyTable from '@/components/Table'
 import ModalForm from '@/components/ModalForm'
+import { useFetch } from '@/services/queries'
+import { useCreate } from '@/services/useCreate'
+import Loading from '@/components/Loading'
+import { formatDate } from '@/utils/formatDateTime'
 
 const { Search } = Input
 const { Option } = Select
@@ -15,58 +19,47 @@ const StaffPromotion = () => {
   const formRef = useRef(null)
   const [form] = Form.useForm()
 
+  const roomtype = useFetch({ url: '/api/room/roomtype', key: 'roomtype' })
+  const promotions = useFetch({ url: '/api/promotion', key: 'promotion' })
+  const createPromotion = useCreate({ url: '/api/promotion', key: 'promotion' })
+  useEffect(() => {
+    form.setFieldsValue({ ...selectCoupon })
+  }, [selectCoupon])
+
+  if (promotions.isLoading && roomtype.isLoading) return <Loading />
+
   const handleCreate = (values: any) => {
-    setOpenModal(false)
     console.log(values)
+    createPromotion.mutate(values)
+    setOpenModal(false)
   }
 
   const handleEdit = (values: any) => {
     console.log(values)
   }
 
-  //   const handleDelete = (values: any) => {
-  //     console.log(values);
-  //   };
-
-  useEffect(() => {
-    form.setFieldsValue({ ...selectCoupon })
-  }, [selectCoupon])
-
-  const Coupon = [
-    {
-      id: '1',
-      code: 'Dr804t',
-      discount: 20,
-      range: '1-2',
-      amount: 20,
-      roomType: 'VIP Room',
-    },
-    {
-      id: '2',
-      code: 'XX7T',
-      discount: 15,
-      range: '1-2',
-      amount: 200,
-      roomType: 'Normal Room',
-    },
-  ]
-
   const columns: ColumnsType = [
     {
       title: 'Code',
       dataIndex: 'code',
       key: 'code',
+      align: 'center',
     },
     {
       title: 'Discount',
-      dataIndex: 'discount',
+      dataIndex: 'discount_percent',
       align: 'center',
-      render: (e) => <div>{e}%</div>,
+      render: (e) => <div>{e} %</div>,
     },
     {
       title: 'Range',
       //   dataIndex: "maxPeople",
       align: 'center',
+      render: (_value, item) => (
+        <div>
+          {formatDate(item.start_date)} - {formatDate(item.expired_date)}
+        </div>
+      ),
     },
     {
       title: 'Amount',
@@ -75,8 +68,19 @@ const StaffPromotion = () => {
     },
     {
       title: 'Room Type',
-      dataIndex: 'roomType',
+      dataIndex: 'roomtype',
       align: 'center',
+      render: (data) => (
+        <span>
+          {data.map((item: any, idx: number) => {
+            return (
+              <Tag color="orange" key={idx}>
+                {item.name.toUpperCase()}
+              </Tag>
+            )
+          })}
+        </span>
+      ),
     },
     {
       key: 'x',
@@ -92,13 +96,6 @@ const StaffPromotion = () => {
           >
             Edit
           </Button>
-          {/* <Button
-            icon={<DeleteOutlined />}
-            style={{ color: "red" }}
-            type="text"
-            onClick={() => {}}
-            className="px-6 rounded-xl"
-          /> */}
         </div>
       ),
       align: 'center',
@@ -148,13 +145,14 @@ const StaffPromotion = () => {
         </div>
       </div>
       <div className="px-40">
-        <MyTable dataSource={Coupon} rowKey={(record) => record.id} columns={columns} />
+        <MyTable dataSource={promotions.data} rowKey={(record) => record.id} columns={columns} />
       </div>
       <ModalForm title={isEdit ? 'Edit Coupon' : 'Add Coupon'} desc="" isopen={openModal} setIsOpen={setOpenModal}>
         <Form
           form={form}
           ref={formRef}
           layout="vertical"
+          className="w-1/2"
           onFinish={(values) => {
             isEdit ? handleEdit(values) : handleCreate(values)
           }}
@@ -164,7 +162,7 @@ const StaffPromotion = () => {
           </Form.Item>
           <Form.Item
             label="Discount Percentage"
-            name="discount"
+            name="discount_percent"
             rules={[{ required: true, message: 'Please input Discount Percentage!' }]}
           >
             <Input type="number" size="large" className="w-full" />
@@ -175,63 +173,51 @@ const StaffPromotion = () => {
 
           <div className="col-span-1 md:col-span-3">
             <Form.Item
-              name="startTime"
+              name="start_date"
               label={<p className="font-bold">เวลาที่เริ่ม</p>}
               rules={[{ required: true, message: 'กรุณากรอกเวลาที่เริ่ม' }]}
               hasFeedback
             >
-              <TimePicker
-                size="large"
-                needConfirm={false}
-                minuteStep={15}
-                showNow={false}
-                format="HH:mm"
-                className="w-full"
-              />
+              <DatePicker allowClear={false} size="large" format="DD/MM/YYYY" className="w-full" />
             </Form.Item>
           </div>
 
           <div className="col-span-1 md:col-span-3">
             <Form.Item
-              name="endTime"
+              name="expired_date"
               label={<p className="font-bold">เวลาที่สิ้นสุด</p>}
               rules={[{ required: true, message: 'กรุณากรอกเวลาที่สิ้นสุด' }]}
               hasFeedback
             >
-              <TimePicker
-                size="large"
-                format="HH:mm"
-                needConfirm={false}
-                minuteStep={15}
-                showNow={false}
-                className="w-full"
-              />
+              <DatePicker allowClear={false} size="large" format="DD/MM/YYYY" className="w-full" />
             </Form.Item>
           </div>
-          <Form.Item name="subject">
+          <Form.Item name="roomtype_id">
             <Checkbox.Group className="grid grid-cols-2 md:grid-cols-3 justify-center items-center gap-2 text-center font-bold">
-              <div className="col-span-1">
+              {roomtype.data?.map((room: any) => {
+                return (
+                  <div key={room.id} className="col-span-1">
+                    {room.name} <br />
+                    <Checkbox value={room.id} />
+                  </div>
+                )
+              })}
+              {/* <div className="col-span-1">
                 Deluxe <br />
                 <Checkbox value="MTH" />
-              </div>
-              <div className="col-span-1">
-                VIP <br />
-                <Checkbox value="PHY" />
-              </div>
-              <div>
-                Normal <br />
-                <Checkbox value="CHM" />
-              </div>
+              </div> */}
             </Checkbox.Group>
           </Form.Item>
-          <Button
-            onClick={() => {}}
-            htmlType="submit"
-            className="px-6 border border-primary-blue rounded-xl"
-            size="large"
-          >
-            {isEdit ? 'Edit ' : 'Add'}
-          </Button>
+          <div className="flex justify-center">
+            <Button
+              onClick={() => {}}
+              htmlType="submit"
+              className="px-6 border border-primary-blue rounded-xl"
+              size="large"
+            >
+              {isEdit ? 'Edit ' : 'Add'}
+            </Button>
+          </div>
         </Form>
       </ModalForm>
     </>

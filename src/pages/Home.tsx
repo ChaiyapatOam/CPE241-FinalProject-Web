@@ -13,6 +13,7 @@ const Home = () => {
     console.log('Success:', values)
     navigate('/staff')
   }
+
   return (
     <div className="flex flex-row h-screen">
       <div className="basis-1/2 m-0 " id="side-bar">
@@ -45,7 +46,12 @@ const Home = () => {
               Login
             </Button>
           </Form.Item> */}
-          <Button htmlType="submit" type="primary" className="border rounded-md text-white bg-primary-blue mt-5 w-4/12">
+          <Button
+            htmlType="submit"
+            type="primary"
+            size="large"
+            className="border rounded-md text-white bg-primary-blue mt-5 w-4/12"
+          >
             Log In
           </Button>
         </Form>

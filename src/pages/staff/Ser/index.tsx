@@ -1,5 +1,4 @@
 import { Button, Form, Input, TimePicker } from 'antd'
-// import { DeleteOutlined } from "@ant-design/icons";
 import { ColumnsType } from 'antd/es/table'
 import { useEffect, useRef, useState } from 'react'
 import MyTable from '@/components/Table'
@@ -68,7 +67,7 @@ const StaffService = () => {
     },
     {
       key: 'x',
-      render: (e) => (
+      render: () => (
         <div className="flex justify-center gap-x-4">
           <div>
             <button
@@ -79,43 +78,7 @@ const StaffService = () => {
               }}
               // className="px-6 border border-primary-blue rounded-xl"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
-                <path
-                  d="M4.5 9H31.5"
-                  stroke="#FF0000"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M28.5 9V30C28.5 31.5 27 33 25.5 33H10.5C9 33 7.5 31.5 7.5 30V9"
-                  stroke="#FF0000"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M12 9V6C12 4.5 13.5 3 15 3H21C22.5 3 24 4.5 24 6V9"
-                  stroke="#FF0000"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M15 16.5V25.5"
-                  stroke="#FF0000"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M21 16.5V25.5"
-                  stroke="#FF0000"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
+              <img src="/icons/delete.svg" width={36} height={36} alt="" />
             </button>
           </div>
         </div>
@@ -137,7 +100,7 @@ const StaffService = () => {
           style={{ width: 200 }}
         />
       </div>
-      <p className="text-xl ml-10 "> Add new Service</p>
+      {/* <p className="text-xl ml-10 "> Add new Service</p> */}
       <div className="flex justify-evenly mt-5 ">
         <div>
           <label className="mr-3">Service Name</label>

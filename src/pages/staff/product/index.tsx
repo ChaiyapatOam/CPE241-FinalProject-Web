@@ -171,6 +171,7 @@ const StaffProduct = () => {
             style={{ width: 200 }}
           />
         </div>
+        <div></div>
         <div>
           <Button
             onClick={() => {
@@ -186,7 +187,7 @@ const StaffProduct = () => {
         </div>
       </div>
       <div className="px-60">
-        <MyTable dataSource={category} rowKey={(record) => record.id} columns={categoryColumns} />
+        <MyTable dataSource={category} rowKey={(record) => record.id} columns={categoryColumns}  />
       </div>
       <div className="grid grid-cols-3 justify-center items-center place-items-center gap-4 p-6 ">
         <div className="col-span-1">

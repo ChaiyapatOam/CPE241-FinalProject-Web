@@ -1,30 +1,20 @@
-import { Button, Form, Input } from 'antd'
-import { useEffect, useRef, useState } from 'react'
+import { Button, Form, Input, Select } from 'antd'
+import { useRef, useState } from 'react'
 import ModalForm from '@/components/ModalForm'
+import { useFetch } from '@/services/queries'
 
 const MaidProductCharge = () => {
   const [openModal, setOpenModal] = useState(false)
-  const [isEdit, setIsEdit] = useState(false)
-  const [selectProduct, setSelectedProduct] = useState({} as any)
   const formRef = useRef(null)
   const [form] = Form.useForm()
+
+  const rooms = useFetch({ url: '/api/room', key: 'room' })
+  const products = useFetch({ url: '/api/product', key: 'product' })
 
   const handleCreate = (values: any) => {
     setOpenModal(false)
     console.log(values)
   }
-
-  const handleEdit = (values: any) => {
-    console.log(values)
-  }
-
-  //   const handleDelete = (values: any) => {
-  //     console.log(values);
-  //   };
-
-  useEffect(() => {
-    form.setFieldsValue({ ...selectProduct })
-  }, [selectProduct])
 
   return (
     <>
@@ -35,22 +25,9 @@ const MaidProductCharge = () => {
               <h1 className="font-bold">Create Product Ordering</h1>
             </div>
             <div className="flex flex-col ml-3">
-              <div className="grid grid-cols-3 gap-4 p-3">
-                <div>
-                  <span className="font-semibold">RoomID :</span> 65077
-                </div>
-                <div>
-                  <span className="font-semibold">ProductID :</span> 3542
-                </div>
-                <div>
-                  <span className="font-semibold">Quantity :</span> 3
-                </div>
-              </div>
               <div className="text-right mr-5 mb-5 mt-5">
                 <Button
                   onClick={() => {
-                    // setSelectedProduct(e);
-                    setIsEdit(true)
                     setOpenModal(true)
                   }}
                   className="px-6 border bg-primary-blue rounded-md text-white ml-3"
@@ -71,21 +48,46 @@ const MaidProductCharge = () => {
             >
               <Form.Item
                 label="RoomID"
-                name="roomID"
+                name="room_id"
                 rules={[{ required: true, message: 'Please input Product name!' }]}
               >
-                <Input type="text" size="large" className="w-full" />
+                <Select
+                  className="w-1/2"
+                  size="large"
+                  labelInValue
+                  onChange={(e) => {
+                    console.log(e.label)
+                  }}
+                >
+                  {rooms.data?.map((room: any) => {
+                    return <Select.Option value={room.id}>{room.number}</Select.Option>
+                  })}
+                </Select>
               </Form.Item>
+
               <Form.Item
                 label="ProductID"
-                name="productID"
+                name="product_id"
                 rules={[{ required: true, message: 'Please input Product name!' }]}
               >
-                <Input type="text" size="large" className="w-full" />
+                <Select
+                  className="w-1/2"
+                  size="large"
+                  labelInValue
+                  onChange={(e) => {
+                    console.log(e.label)
+                  }}
+                >
+                  {products.data?.map((product: any) => {
+                    return <Select.Option value={product.id}>{product.name}</Select.Option>
+                  })}
+                </Select>
               </Form.Item>
+
               <Form.Item label="Quanity" name="quantity" rules={[{ required: true, message: 'Please input Price!' }]}>
                 <Input type="number" size="large" className="w-full" />
               </Form.Item>
+
               <Button
                 onClick={() => {}}
                 htmlType="submit"

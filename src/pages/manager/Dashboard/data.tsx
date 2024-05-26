@@ -37,7 +37,7 @@ export const UserData = [
   },
   {
     id: 7,
-    name: 'Yedtoodday',
+    name: 'Sunday',
     numberofBooking: 20,
     userLost: 234,
   },

@@ -1,12 +1,20 @@
-import { Button, Form, Input, Select } from 'antd'
+import { Button, Form, Input } from 'antd'
 import { DeleteOutlined } from '@ant-design/icons'
 import { ColumnsType } from 'antd/es/table'
 import { useEffect, useRef, useState } from 'react'
 import MyTable from '@/components/Table'
 import ModalForm from '@/components/ModalForm'
+import { useFetch } from '@/services/queries'
+import Loading from '@/components/Loading'
+import { useCreate } from '@/services/useCreate'
 
 const { Search } = Input
-const { Option } = Select
+type RoomType = {
+  id: string
+  name: string
+  max_people: number
+  price: number
+}
 
 const StaffRoomType = () => {
   const [openModal, setOpenModal] = useState(false)
@@ -15,32 +23,21 @@ const StaffRoomType = () => {
   const formRef = useRef(null)
   const [form] = Form.useForm()
 
-  const handleCreate = (values: any) => {
-    setOpenModal(false)
-  }
-
-  const handleEdit = (values: any) => {}
-
-  const handleDelete = (values: any) => {}
-
   useEffect(() => {
     form.setFieldsValue({ ...selectedRoomType })
   }, [selectedRoomType])
 
-  const RoomType = [
-    {
-      id: '1',
-      name: 'Deluxe Room',
-      maxPeople: 3,
-      price: 500,
-    },
-    {
-      id: '2',
-      name: 'Normal Room',
-      maxPeople: 4,
-      price: 200,
-    },
-  ]
+  const roomtype = useFetch({ url: '/api/room/roomtype', key: 'roomtype' })
+  const createRoomType = useCreate<RoomType>({ url: '/api/room/roomtype', key: 'roomtype' })
+
+  const handleCreate = (values: any) => {
+    createRoomType.mutate(values)
+    setOpenModal(false)
+  }
+
+  const handleEdit = (values: any) => {
+    console.log(values)
+  }
 
   const columns: ColumnsType = [
     {
@@ -56,7 +53,7 @@ const StaffRoomType = () => {
     },
     {
       title: 'MaxPeople',
-      dataIndex: 'maxPeople',
+      dataIndex: 'max_people',
       align: 'center',
     },
     {
@@ -91,6 +88,7 @@ const StaffRoomType = () => {
     },
   ]
 
+  if (roomtype.isLoading) return <Loading />
   return (
     <>
       <div className="flex flex-row justify-evenly ">
@@ -119,7 +117,7 @@ const StaffRoomType = () => {
         </div>
       </div>
       <div className="px-60">
-        <MyTable dataSource={RoomType} rowKey={(record) => record.id} columns={columns} />
+        <MyTable dataSource={roomtype.data} rowKey={(record) => record.id} columns={columns} />
       </div>
       <ModalForm
         title={isEdit ? 'Edit Room Type' : 'Add Room Type'}
@@ -141,7 +139,7 @@ const StaffRoomType = () => {
           </Form.Item>
           <Form.Item
             label="Max People"
-            name="maxPeople"
+            name="max_people"
             rules={[{ required: true, message: 'Please input Max People!' }]}
           >
             <Input type="number" size="large" className="w-full" />
@@ -149,12 +147,7 @@ const StaffRoomType = () => {
           <Form.Item label="Price" name="price" rules={[{ required: true, message: 'Please input Price!' }]}>
             <Input type="number" size="large" className="w-full" />
           </Form.Item>
-          <Button
-            onClick={() => {}}
-            htmlType="submit"
-            className="px-6 border border-primary-blue rounded-xl"
-            size="large"
-          >
+          <Button htmlType="submit" className="px-6 border border-primary-blue rounded-xl" size="large">
             {isEdit ? 'Edit ' : 'Add'}
           </Button>
         </Form>

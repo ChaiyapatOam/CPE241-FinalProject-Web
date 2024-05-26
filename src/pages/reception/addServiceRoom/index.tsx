@@ -3,65 +3,42 @@ import { ColumnsType } from 'antd/es/table'
 import { useEffect, useRef, useState } from 'react'
 import MyTable from '@/components/Table'
 import ModalForm from '@/components/ModalForm'
+import { useFetch } from '@/services/queries'
+import { useCreate } from '@/services/useCreate'
+import Loading from '@/components/Loading'
 
 const { Search } = Input
 const { Option } = Select
 
 const ReceptAddRoomService = () => {
   const [openModal, setOpenModal] = useState(false)
-  const [isEdit, setIsEdit] = useState(false)
-  const [selectedRoomType, setSelectedRoomType] = useState({} as any)
+  const [selectedBooking, setSelectedBooking] = useState({} as any)
   const formRef = useRef(null)
   const [form] = Form.useForm()
 
-  const handleCreate = (values: any) => {
-    setOpenModal(false)
-  }
-
-  const handleEdit = (values: any) => {}
-
-  // const handleDelete = (values: any) => {};
+  const bookings = useFetch({ url: '/api/booking', key: 'booking' })
+  const services = useFetch({ url: '/api/service', key: 'service' })
+  const createRoomService = useCreate({ url: '/api/service', key: 'booking' })
 
   useEffect(() => {
-    form.setFieldsValue({ ...selectedRoomType })
-  }, [selectedRoomType])
+    form.setFieldsValue({ ...selectedBooking })
+  }, [selectedBooking])
+  if (bookings.isLoading) return <Loading />
 
-  const RoomType = [
-    {
-      bookingId: '1',
-      roomId: '2312',
-      firstName: 'Chaiyapat',
-      phone: '2321245454',
-    },
-    {
-      bookingId: '1',
-      roomId: '2312',
-      firstName: 'Chaiyapat',
-      phone: '2321245454',
-    },
-    {
-      bookingId: '1',
-      roomId: '2312',
-      firstName: 'Chaiyapat',
-      phone: '2321245454',
-    },
-    {
-      bookingId: '1',
-      roomId: '2312',
-      firstName: 'Chaiyapat',
-      phone: '2321245454',
-    },
-  ]
+  const handleCreate = (values: any) => {
+    createRoomService.mutate(values)
+    setOpenModal(false)
+  }
 
   const columns: ColumnsType = [
     {
       title: 'Room ID',
-      dataIndex: 'roomId',
+      dataIndex: 'room_number',
       align: 'center',
     },
     {
       title: 'Guest Name',
-      dataIndex: 'firstName',
+      dataIndex: 'first_name',
       align: 'center',
     },
     {
@@ -71,7 +48,7 @@ const ReceptAddRoomService = () => {
     },
     {
       title: 'Booking ID',
-      dataIndex: 'bookingId',
+      dataIndex: 'id',
       align: 'center',
     },
     {
@@ -80,8 +57,8 @@ const ReceptAddRoomService = () => {
         <div className="flex justify-center gap-x-4">
           <Button
             onClick={() => {
-              setSelectedRoomType(e)
-              setIsEdit(true)
+              setSelectedBooking(e)
+
               setOpenModal(true)
             }}
             className="px-6 border border-primary-blue rounded-xl"
@@ -110,7 +87,7 @@ const ReceptAddRoomService = () => {
         </div>
       </div>
       <div className="px-60">
-        <MyTable dataSource={RoomType} rowKey={(record) => record.id} columns={columns} />
+        <MyTable dataSource={bookings.data} rowKey={(record) => record.id} columns={columns} />
       </div>
       <ModalForm title={'Call Room Service'} desc="" isopen={openModal} setIsOpen={setOpenModal}>
         <Form
@@ -118,7 +95,7 @@ const ReceptAddRoomService = () => {
           ref={formRef}
           layout="vertical"
           onFinish={(values) => {
-            handleEdit(values)
+            handleCreate(values)
           }}
           className="w-5/12"
         >
@@ -131,9 +108,9 @@ const ReceptAddRoomService = () => {
                 console.log(e.label)
               }}
             >
-              <Option value="1">Maid</Option>
-              <Option value="2">Reception</Option>
-              <Option value="3">Staff</Option>
+              {services.data?.map((service: any) => {
+                return <Option value={service.id}>{service.name}</Option>
+              })}
             </Select>
           </Form.Item>
 

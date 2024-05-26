@@ -25,12 +25,12 @@ const AllService = () => {
                 className="ml-3"
                 size="large"
                 labelInValue
-                placeholder="lastest booking"
+                placeholder="latest booking"
                 onChange={(e) => {
                   console.log(e.label)
                 }}
               >
-                <Select.Option value="1">Lastest booking</Select.Option>
+                <Select.Option value="1">Latest booking</Select.Option>
                 <Select.Option value="2">Oldest booking</Select.Option>
                 <Select.Option value="3">Recently check in</Select.Option>
               </Select>
